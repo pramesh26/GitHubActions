@@ -1,0 +1,15 @@
+name: MainWorkFlow
+on : [pull_request, push]
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: set up python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Install Dependecnes
+      run: pip install -r requirements.txt
+    - name: Run Test
+      run: PyTest/
